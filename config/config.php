@@ -1,7 +1,7 @@
 <?php
 
 define("URL", "http://localhost:8080/estructura_mvc/");//Dominio del sistema
-define("Sistema", "dashboard-collecta");//Nombre del sistema
+define("Sistema", "grupo-lahe");//Nombre del sistema
 
 define("HOST", "localhost");//Servidor donde se aloja la base de datos
 define("DB", "amegonline");//Nombre de la base de datos
