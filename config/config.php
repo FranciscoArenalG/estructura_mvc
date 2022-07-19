@@ -1,20 +1,11 @@
 <?php
 
-define("URL", "http://localhost/dashboardcollecta/");
-/* define("Sistema", "dashboard-collecta");
+define("URL", "http://localhost/dashboardcollecta/");//Dominio del sistema
+define("Sistema", "dashboard-collecta");//Nombre del sistema
 
-define("HOST", "localhost");
-define("DB", "collectacloudold");
-define("USER", "root");
-define("PASSWORD", "");
-define("CHARSET", "utf8"); */
+define("HOST", "localhost");//Servidor donde se aloja la base de datos
+define("DB", "collectacloudold");//Nombre de la base de datos
+define("USER", "root");//Usuario de la base de datos
+define("PASSWORD", "");//Contraseña de usuario de la base de datos
+define("CHARSET", "utf8");//Codificación de caracteres.
 
-// Datos para collecta
-/* define("URL", "https://collectaglobal.com/modulos_collecta/dashboardcollecta/"); */
-define("Sistema", "dashboard-collecta");
-
-define("HOST", "34.130.176.60");
-define("DB", "collectacloudold");
-define("USER", "reportes");
-define("PASSWORD", "Rep0rtes2022!?");
-define("CHARSET", "utf8");
