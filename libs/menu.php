@@ -26,8 +26,8 @@ class Menu{
   public function getMenu($estructura){
     $con = new Database();
     try {
-      $query = $con->connect()->prepare("SELECT * FROM tb_menu WHERE nombre_menu != 'Iniciar sesión' and fk_estructura in (7,?) ORDER BY posicion_menu ASC");
-      $query->execute([$estructura]);
+      $query = $con->connect()->prepare("SELECT * FROM cat_menu WHERE nombre_menu != 'Iniciar sesión' ORDER BY posicion_menu ASC");
+      $query->execute();
       $items = $query->fetchAll();
       return $items;
     } catch (PDOException $e) {
@@ -39,7 +39,7 @@ class Menu{
   public function getMenuLogin(){
     $con = new Database();
     try {
-      $query = $con->connect()->query("SELECT * FROM tb_menu WHERE nombre_menu IN('Iniciar sesión')");
+      $query = $con->connect()->query("SELECT * FROM cat_menu WHERE nombre_menu IN('Iniciar sesión')");
       $items = $query->fetchAll();
       return $items;
     } catch (PDOException $e) {
@@ -51,7 +51,7 @@ class Menu{
   public function getByIdMenuSubmenu($id){
     $con = new Database();
     try {
-      $query = $con->connect()->prepare("SELECT * FROM tb_submenu WHERE fk_id_menu = :fkMenu");
+      $query = $con->connect()->prepare("SELECT * FROM cat_submenu WHERE fk_id_menu = :fkMenu");
       $query->execute(['fkMenu'=>$id]);
       return $query->fetchAll();
     } catch (PDOException $e) {

@@ -2,7 +2,8 @@
 <html lang="es" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <?=$this->icono;?>
+    <title>Error</title>
   </head>
   <body>
     <?php require("views/header.view.php"); ?>

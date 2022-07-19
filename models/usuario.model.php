@@ -6,10 +6,9 @@ class Usuario {
   // Variables para la tabla "usuarios"
   public $id_usuario;
   public $nombre_usuario;
-  public $correo_usuario;
   public $nickname_usuario;
   public $password_usuario;
-  public $fk_estructura;
+  public $fk_puesto;
   public $estatus_usuario;
   public $resp;
 

@@ -33,21 +33,10 @@ class Login extends ControllerBase{
               // $_SESSION['idUsuario-'.constant('Sistema')] = 1;
               $_SESSION['id_usuario-'.constant('Sistema')] = $usuario->id_usuario;
               $_SESSION['nombre_usuario-'.constant('Sistema')] = $usuario->nombre_usuario;
-              $_SESSION['correo_usuario-'.constant('Sistema')] = $usuario->correo_usuario;
               $_SESSION['nickname_usuario-'.constant('Sistema')] = $usuario->nickname_usuario;
               $_SESSION['password_usuario-'.constant('Sistema')] = $usuario->password_usuario;
-              $_SESSION['fk_estructura-'.constant('Sistema')] = $usuario->fk_estructura;
+              $_SESSION['fk_puesto-'.constant('Sistema')] = $usuario->fk_puesto;
               $_SESSION['estatus_usuario-'.constant('Sistema')] = $usuario->estatus_usuario;
-              $clientes = $this->model->getCliente($usuario->id_usuario);
-              $id_clientes = "";
-              foreach ($clientes as $value) {
-                if ($value === end($clientes)) {
-                  $id_clientes .=$value['fk_id_c_cliente'];
-                }else{
-                  $id_clientes .=$value['fk_id_c_cliente'].",";
-                }
-              }
-              $_SESSION['id_cliente-'.constant('Sistema')] = $id_clientes;
               // // echo "Usuario y constraseña recibidos";
               $this->model->insertSesion();
               header("location:".constant('URL'));

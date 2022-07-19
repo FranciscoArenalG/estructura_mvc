@@ -19,35 +19,11 @@ class App
         // Cuando se ingresa sin definir el controlador
         if (isset($_SESSION['id_usuario-' . constant('Sistema')]) && !empty($_SESSION['id_usuario-' . constant('Sistema')])) {
             if (empty($this->url[0])) {
-                $controller = "";
-                $archivoController = "";
-                switch ($_SESSION['fk_estructura-' . constant('Sistema')]) {
-                    case '1':
-                        $archivoController = "controllers/dashboard.controller.php";
-                        require_once $archivoController;
-                        $controller = new Dashboard();
-                        $controller->loadModel("dashboard");
-                        $controller->render();
-                        break;
-                    case '2':
-                      $archivoController = "controllers/dashboardd.controller.php";
-                      require_once $archivoController;
-                      $controller = new Dashboardd();
-                      $controller->loadModel("dashboardd");
-                      $controller->render();
-                      break;
-                    case '3':
-                        $archivoController = "controllers/dashboardt.controller.php";
-                        require_once $archivoController;
-                        $controller = new Dashboardt();
-                        $controller->loadModel("dashboardt");
-                        $controller->render();
-                        break;
-
-                    default:
-                        $controller = new Errores();
-                        break;
-                }
+                $archivoController = "controllers/principal.controller.php";
+                require_once $archivoController;
+                $controller = new Principal();
+                $controller->loadModel("principal");
+                $controller->render();
                 return false;
             }
             $archivoController = "controllers/" . $this->url[0] . ".controller.php";

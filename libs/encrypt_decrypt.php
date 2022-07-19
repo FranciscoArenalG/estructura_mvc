@@ -6,8 +6,8 @@ function encrypt_decrypt($action, $string)
     $output = false;
 
     $encrypt_method = "AES-256-CBC";
-    $secret_key = 'Collecta_key';
-    $secret_iv = 'Global_iv';
+    $secret_key = 'Lahe_key';
+    $secret_iv = 'Lahe_iv';
 
     // hash
     $key = hash('sha256', $secret_key);
@@ -25,7 +25,7 @@ function encrypt_decrypt($action, $string)
     return $output;
 }
 
-/* $plain_txt = "philips.dashboard";
+/* $plain_txt = "admin";
 echo "Plain Text = " . $plain_txt . "<br>";
 
 $encrypted_txt = encrypt_decrypt('encrypt', $plain_txt);

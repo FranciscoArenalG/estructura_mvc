@@ -7,7 +7,7 @@ class ControllerBase{
   function __construct(){
     // echo "<p>Controlador base</p>";
     $this->view = new ViewBase();
-
+    $this->view->icono= "<link rel='shortcut icon' href='".constant('URL')."public/img/logo_lahe.png'>";
   }
 
   function loadModel($model){

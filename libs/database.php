@@ -19,8 +19,8 @@ class Database{
 
   function connect(){
     try {
-      /* $connection = "mysql:host=".$this->host.";dbname=".$this->db.";charset=".$this->charset; */
-      $connection = "pgsql:host=".$this->host.";port=5432;dbname=".$this->db.";";//Collecta
+      $connection = "mysql:host=".$this->host.";dbname=".$this->db.";charset=".$this->charset;//Mysql
+      /* $connection = "pgsql:host=".$this->host.";port=5432;dbname=".$this->db.";";//Postgres */
       $options = [
         PDO::ATTR_ERRMODE =>PDO::ERRMODE_EXCEPTION,
         PDO::ATTR_EMULATE_PREPARES => false,

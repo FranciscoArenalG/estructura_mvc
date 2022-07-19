@@ -11,65 +11,34 @@ class LoginModel extends ModelBase
         parent::__construct();
     }
 
-    // public function get(){
-    //   $items = [];
-    //   try {
-    //     $query = $this->db->connect()->query("SELECT * FROM alumnos");
-    //     while ($row = $query->fetch()) {
-    //       $item = new Alumno();
-    //       $item->matricula = $row['matricula'];
-    //       $item->nombre = $row['nombre'];
-    //       $item->apellido = $row['apellido'];
-    //
-    //       array_push($items, $item);
-    //     }
-    //     return $items;
-    //   } catch (PDOException $e) {
-    //     return [];
-    //   }
-    //
-    // }
-
     public function getFindByUsuario($nickname)
     {
         $usuario = new Usuario();
         try {
-            $query = $this->db->connect()->prepare("SELECT * FROM tb_c_usuario_dashboard_dos WHERE nickname_usuario = :nickname");
+            $query = $this->db->connect()->prepare("SELECT * FROM cat_usuario WHERE nickname_usuario = :nickname");
             $query->execute(['nickname' => $nickname]);
             try {
                 while ($row = $query->fetch()) {
                     // Variables de la tabla "usuarios"
                     $usuario->id_usuario = $row['id_usuario'];
-                    $usuario->nombre_usuario = $row['nombre_usuario'];
-                    $usuario->correo_usuario = $row['correo_usuario'];
+                    $usuario->nombre_usuario = $row['nombre_usuario']." ".$row['apellidop_usuario']." ".$row['apellidom_usuario'];
                     $usuario->nickname_usuario = $row['nickname_usuario'];
                     $usuario->password_usuario = $row['password_usuario'];
-                    $usuario->fk_estructura = $row['fk_estructura'];
+                    $usuario->fk_puesto = $row['fk_puesto_usuario'];
                     $usuario->estatus_usuario = $row['estatus_usuario'];
                     /* $usuario->estatusUsuario = $row['estatusUsuario']; */
                     $usuario->resp = true;
                     // return true;
                 }
                 return $usuario;
-            } catch (\Exception $e) {
-              echo $e->getMessage();
-                return false;
+            } catch (PDOException $e) {
+              echo "Error recopilado: ".$e->getMessage();
+                //return false;
                 return [];
             }
 
         } catch (PDOException $e) {
             return [];
-        }
-    }
-
-    public function getCliente($usuario){
-        try {
-            $query = $this->db->connect()->prepare("SELECT fk_id_c_cliente FROM tb_c_cliente_usuario_dashboard WHERE fk_usuario_dashboard = :usuario");
-            $query->execute(['usuario' => $usuario]);
-            return $query->fetchAll();
-        } catch (PDOException $e) {
-            echo "error: ". $e->getMessage();
-            //return [];
         }
     }
 

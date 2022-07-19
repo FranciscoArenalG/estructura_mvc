@@ -24,40 +24,17 @@
     <nav class="border-bottom navbar navbar-expand-md navbar-light navbar-white bg-white sticky-top">
       <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="<?=constant("URL")?>public/img/collecta_icono.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8;margin-top: -0.5rem;margin-right: 0.2rem;height: 33px;">
-        <span class="brand-text font-weight-light">Dashboard <?php echo $_SESSION['nombre_usuario-'.constant('Sistema')]; ?></span>
+        <img src="<?=constant("URL")?>public/img/logo_lahe.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8;margin-top: -0.5rem;margin-right: 0.2rem;height: 33px;">
+        <span class="brand-text font-weight-light"><?php echo $_SESSION['nombre_usuario-'.constant('Sistema')]; ?></span>
       </a>
       <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse order-3" id="navbarCollapse">
         <ul class="navbar-nav ml-auto">
-          <?php
-            $clientes_penia = explode(",",$_SESSION['id_cliente-'.constant('Sistema')]);
-            $resp_penia = (in_array("269", $clientes_penia))?true:false;
-          ?>
-        <?php if ($resp_penia /* $_SESSION['id_cliente-'.constant('Sistema')] == 269 */): ?>
-          <li class="nav-item">
-            <button class="nav-link" id="exportarDatosListaBloqueos" title="Descargar lista de bloqueos Peñafiel">
-            Lista Bloqueos <i class="fa fa-download text-success" aria-hidden="true"></i>
-            </button>
-          </li>
-        <?php endif; ?>
-          <?php
-            $clientes_asignados = explode(",",$_SESSION['id_cliente-'.constant('Sistema')]);
-            $resp_sanofi = (in_array("205", $clientes_asignados) || in_array("206", $clientes_asignados) || in_array("262", $clientes_asignados) || in_array("269", $clientes_asignados)|| in_array("263", $clientes_asignados))?true:false;
-          ?>
-          <?php foreach ($menu->getMenu($_SESSION['fk_estructura-'.constant('Sistema')]) as $item): ?>
+          <?php foreach ($menu->getMenu($_SESSION['fk_puesto-'.constant('Sistema')]) as $item): ?>
             <?php if ($menu->getByIdMenuSubmenu($item['id_menu']) == false): ?>
-              <?php if ($item['nombre_menu'] == "Kpi"): ?>
-                <?php if ($resp_sanofi): ?>
                     <li class="nav-item"><a class="nav-link redireccionMenu" href="<?=constant("URL").$item['referencia_menu'];?>" title="<?=$item['descripcion_menu'];?>"><?=$item['nombre_menu'];?></a></li>
-                  <?php else: ?>
-                    <li class="nav-item d-none"><a class="nav-link redireccionMenu" href="<?=constant("URL").$item['referencia_menu'];?>" title="<?=$item['descripcion_menu'];?>"><?=$item['nombre_menu'];?></a></li>
-                <?php endif; ?>
-              <?php else: ?>
-                <li class="nav-item"><a class="nav-link redireccionMenu" href="<?=constant("URL").$item['referencia_menu'];?>" title="<?=$item['descripcion_menu'];?>"><?=$item['nombre_menu'];?></a></li>
-              <?php endif; ?>
             <?php else: ?>
               <li class="nav-item dropdown" title="<?=$item['descripcion_menu'] ?>">
               <a class="nav-link dropdown-toggle" href="#<?=$item['nombre_menu'];?>" id="menu-<?=$item['nombre_menu'];?>" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -83,7 +60,7 @@
     <nav class="border-bottom navbar navbar-expand-lg navbar-light navbar-white bg-white sticky-top">
       <div class="container">
       <a class="navbar-brand" href="#">
-        <img src="<?=constant("URL")?>public/img/collecta_icono.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8;margin-top: -0.5rem;margin-right: 0.2rem;height: 33px;">
+        <img src="<?=constant("URL")?>public/img/logo_lahe.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8;margin-top: -0.5rem;margin-right: 0.2rem;height: 33px;">
         <span class="brand-text font-weight-light">Dashboard</span>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">

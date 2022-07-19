@@ -8,7 +8,7 @@
         <!-- Anything you want -->
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2022 <a href="https://www.collectaglobal.com">CollectaGlobal</a>.</strong> Todos los derechos reservados.
+    <strong>Copyright &copy; 2022 <a href="#">Grupo Lahe</a>.</strong> Todos los derechos reservados.
 </footer>
 <!-- Script de Collecta -->
 <!-- jQuery -->
