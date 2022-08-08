@@ -8,4 +8,3 @@ define("DB", "amegonline");//Nombre de la base de datos
 define("USER", "root");//Usuario de la base de datos
 define("PASSWORD", "");//Contraseña de usuario de la base de datos
 define("CHARSET", "utf8");//Codificación de caracteres.
-

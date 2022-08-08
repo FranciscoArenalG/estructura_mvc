@@ -62,7 +62,7 @@ class Menu{
   //
   // public function getSubMenu($id){
   //   try {
-  //     $query = $this->db->connect()->prepare("SELECT * FROM submenu WHERE matricula = :matricula");
+  //     $query = $this->con->connect()->prepare("SELECT * FROM submenu WHERE matricula = :matricula");
   //     $query->execute(['matricula'=>$id]);
   //     while ($row=$query->fetch()) {
   //       $item->matricula = $row['matricula'];

@@ -15,7 +15,7 @@ class LoginModel extends ModelBase
     {
         $usuario = new Usuario();
         try {
-            $query = $this->db->connect()->prepare("SELECT * FROM cat_usuario WHERE nickname_usuario = :nickname");
+            $query = $this->con->connect()->prepare("SELECT * FROM cat_usuario WHERE nickname_usuario = :nickname");
             $query->execute(['nickname' => $nickname]);
             try {
                 while ($row = $query->fetch()) {
@@ -67,7 +67,7 @@ class LoginModel extends ModelBase
     }
     public function update($item)
     {
-        $query = $this->db->connect()->prepare("UPDATE alumnos SET nombre = :nombre, apellido = :apellido WHERE matricula = :matricula");
+        $query = $this->con->connect()->prepare("UPDATE alumnos SET nombre = :nombre, apellido = :apellido WHERE matricula = :matricula");
         try {
             $query->execute([
                 'matricula' => $item['matricula'],
@@ -83,7 +83,7 @@ class LoginModel extends ModelBase
 
     public function delete($id)
     {
-        $query = $this->db->connect()->prepare("DELETE FROM alumnos WHERE matricula = :id");
+        $query = $this->con->connect()->prepare("DELETE FROM alumnos WHERE matricula = :id");
         try {
             $query->execute([
                 'id' => $id,
